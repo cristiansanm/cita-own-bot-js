@@ -12,15 +12,15 @@ const identities = [
 ];
 
 export async function runScraper(bot: any, chatId: string) {
-  const proxy = process.env.PROXY_SERVER
-    ? {
-        server: process.env.PROXY_SERVER,
-        username: process.env.PROXY_USER,
-        password: process.env.PROXY_PASS,
-      }
-    : undefined;
+  // const proxy = process.env.PROXY_SERVER
+  //   ? {
+  //       server: process.env.PROXY_SERVER,
+  //       username: process.env.PROXY_USER,
+  //       password: process.env.PROXY_PASS,
+  //     }
+  //   : undefined;
 
-  const browser = await chromium.launch({ headless: true, proxy });
+  const browser = await chromium.launch({ headless: true });
   const context = await browser.newContext({ locale: 'es-ES', timezoneId: 'Europe/Madrid' });
   const page = await context.newPage();
 
